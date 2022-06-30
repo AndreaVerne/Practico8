@@ -1,5 +1,8 @@
 package ejercicio2;
 
+import java.util.ArrayList;
+
+import busqueda.Condicion;
 
 public class Archivo extends Elemento {
 
@@ -15,6 +18,15 @@ public class Archivo extends Elemento {
 	@Override
 	public double getTamanio() {
 		return this.tamanio;
+	}
+
+	@Override
+	public ArrayList<Elemento> buscar(Condicion c) {
+		ArrayList<Elemento> result = new ArrayList<>();
+		if(c.cumple(this)) {
+			result.add(this);
+		}
+		return result;
 	}
 
 	

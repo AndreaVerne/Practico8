@@ -1,6 +1,9 @@
 package ejercicio2;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+
+import busqueda.Condicion;
 
 public abstract class Elemento {
 	String nombre;
@@ -28,4 +31,7 @@ public abstract class Elemento {
 	
 	public abstract double getTamanio();	
 	
+	
+	//buscar
+	public abstract ArrayList<Elemento> buscar(Condicion c);
 }

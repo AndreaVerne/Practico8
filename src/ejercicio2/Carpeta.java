@@ -2,6 +2,8 @@ package ejercicio2;
 
 import java.util.ArrayList;
 
+import busqueda.Condicion;
+
 public class Carpeta extends Elemento {
 
 	ArrayList<Elemento> elems;
@@ -32,6 +34,15 @@ public class Carpeta extends Elemento {
 			suma += (elems.get(i).getTamanio());
 		}
 		return suma;
+	}
+
+	@Override
+	public ArrayList<Elemento> buscar(Condicion c) {
+		ArrayList<Elemento> result = new ArrayList<>();
+		for (int i = 0; i < elems.size(); i++) {
+			result.addAll(elems.get(i).buscar(c));
+		}
+		return result;
 	}
 
 }

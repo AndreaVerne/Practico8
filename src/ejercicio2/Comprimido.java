@@ -2,6 +2,8 @@ package ejercicio2;
 
 import java.util.ArrayList;
 
+import busqueda.Condicion;
+
 public class Comprimido extends Elemento {
 
 	ArrayList<Elemento> elems = new ArrayList<>();
@@ -49,6 +51,17 @@ public class Comprimido extends Elemento {
 			suma += elems.get(i).getTamanio();
 		}
 		return suma/this.factorCompresion;
+	}
+
+	@Override
+	public ArrayList<Elemento> buscar(Condicion c) {
+		ArrayList<Elemento> result = new ArrayList<>();
+		for (int i = 0; i < elems.size(); i++) {
+			if(c.cumple(elems.get(i))) {
+				result.add(this);
+			}
+		}
+		return result;
 	}
 
 	
