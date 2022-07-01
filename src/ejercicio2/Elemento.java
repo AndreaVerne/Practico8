@@ -1,5 +1,5 @@
 package ejercicio2;
-
+import ejercicio2.busqueda.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -34,4 +34,9 @@ public abstract class Elemento {
 	
 	//buscar
 	public abstract ArrayList<Elemento> buscar(Condicion c);
+	
+	//copia
+	public abstract Elemento copia();
+	
+	public abstract Elemento copiaRestringida(Condicion c);
 }

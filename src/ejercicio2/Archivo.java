@@ -2,7 +2,7 @@ package ejercicio2;
 
 import java.util.ArrayList;
 
-import busqueda.Condicion;
+import ejercicio2.busqueda.*;
 
 public class Archivo extends Elemento {
 
@@ -13,6 +13,10 @@ public class Archivo extends Elemento {
 		super(nombre);
 		this.tamanio = tamanio;
 		this.extension = extension;
+	}
+	
+	public String getExtension() {
+		return this.extension;
 	}
 
 	@Override
@@ -27,6 +31,24 @@ public class Archivo extends Elemento {
 			result.add(this);
 		}
 		return result;
+	}
+	
+	//copia COMPLETA
+	public Elemento copia() {
+		Elemento copia = new Archivo(this.getNombre(), this.getExtension(), this.getTamanio());
+		
+		return copia;
+		
+	}
+	
+	//copia restringida donde copio el elemento y respeta la estructura (si un hijo cumple se copia la carpeta tambien)
+	public Elemento copiaRestringida(Condicion c) {
+		if(c.cumple(this)) {
+			return this.copia();
+		}
+		else{
+			return null;
+		}
 	}
 
 	

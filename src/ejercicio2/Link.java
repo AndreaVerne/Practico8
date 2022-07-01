@@ -2,8 +2,7 @@ package ejercicio2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-import busqueda.Condicion;
+import ejercicio2.busqueda.*;
 
 public class Link extends Elemento {
 
@@ -38,7 +37,22 @@ public class Link extends Elemento {
 		}
 		return result;
 	}
+
+	//COPIA COMPLETA
+	@Override
+	public Elemento copia() {
+		Elemento copia = new Link(this.getReferencia());
+		return copia;
+	}
 	
-	
+	//copia restringida donde copio el elemento y respeta la estructura (si un hijo cumple se copia la carpeta tambien)
+	public Elemento copiaRestringida(Condicion c) {
+		if(c.cumple(this)) {
+			return this.copia();
+		}
+		else{
+			return null;
+		}
+	}
 
 }
